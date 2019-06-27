@@ -15,7 +15,7 @@ namespace StorageAnalytics
         {
             StorageUri blobStorageUri = new StorageUri(new Uri($"https://{args[0]}.blob.core.windows.net"));
             StorageUri tableStorageUri = new StorageUri(new Uri($"https://{args[0]}.table.core.windows.net"));
-            StorageCredentials credentials = new StorageCredentials("jpwsclassic", args[1]);
+            StorageCredentials credentials = new StorageCredentials(args[0], args[1]);
             CloudAnalyticsClient client = new CloudAnalyticsClient(blobStorageUri, tableStorageUri, credentials);
 
             PrintMinuteMetrics(client);
